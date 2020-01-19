@@ -15,17 +15,7 @@
 - monitor Github issues daily
 - write specific commit messages so all team members can be informed on progress
 - link commit messages to issues where appropriate
-​
-## Tasks
-|Team Member| Task assigned | Due Date|
-|---|---|---|
-|Mike Chen| Bar graph in ggplot| Friday, December 5|
-||Create helpers.py file | Thursday, December 4|
-|Alexander Hinton| Choropleth map in ggplot|Friday, December 5|
-|| Update contract and reflections| Thursday, December 4|
-|Andrea Lee| Heat Map| Friday, December 5|
-|| Update proposal and dictionary comprehensions|Thursday, December 4|
-|Yingping Qian| Trend Plot in ggplot| Friday, December 5|
-||Update readme with new sketches and plots|Thursday, December 4|
+- use projects tab update task list
+
 
 ### Remember to have fun!
