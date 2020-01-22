@@ -11,7 +11,7 @@ The EDA for this project may be found here: [Group 404 EDA](https://github.com/j
 
 ## Usage
 
-To download the data, run the following code in the command line:
+To download the flights dataset, run the following code in the command line:
 
 ```
 Rscript src/load_data.R 'https://dl.dropboxusercontent.com/s/5o9gmtpq2q8cshp/flights.csv?dl=0' 'data/flights.csv'
