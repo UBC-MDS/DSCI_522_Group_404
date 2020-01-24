@@ -15,5 +15,8 @@ To download the flights dataset, run the following code in the command line:
 
 ```
 Rscript src/load_data.R 'https://dl.dropboxusercontent.com/s/5o9gmtpq2q8cshp/flights.csv?dl=0' 'data/flights.csv'
+
+python src/dataprocessing.py --path_in="data/flights.csv" --path_out="/data"
+
 ```
 
