@@ -1,3 +1,12 @@
+# Author: Group 404
+# Date: 2020-01-23
+#
+"""Reads in raw csv data and performs the necessary wrangling and transformations.
+Usage: src/dataprocessing.py --path_in=<path_in> --path_out=<path_out>
+Options:
+--path_in=<path_in>    Path (including filename) of where to read source data
+--path_out=<path_out>    Path (excluding filename) of where to locally write the file
+"""
 
 
 import numpy as np
@@ -5,12 +14,25 @@ import pandas as pd
 import altair as alt
 # from pandas_profiling import ProfileReport
 from sklearn.model_selection import train_test_split
+from docopt import docopt
+import requests
+import os
 
 #alt.data_transformers.enable('json')
 #alt.renderers.enable('notebook')
 
+opt = docopt(__doc__)
 
 def EDA(input_path, output_path):
+    try: 
+        assert(type(input_path) == str)
+    except:
+        print("Input path should be a string")
+    try: 
+        assert(type(output_path) == str)
+    except:
+        print("Input path should be a string")
+
     data = pd.read_csv(input_path)
 
 
@@ -126,3 +148,7 @@ def EDA(input_path, output_path):
 
 
 
+def main(path_in, path_out):
+    EDA(path_in, path_out)
+if __name__ == "__main__":
+    main(opt["--path_in"], opt["--path_out"])
