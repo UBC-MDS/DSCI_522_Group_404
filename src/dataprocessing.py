@@ -76,6 +76,9 @@ def wrangler(input_path, output_path):
 
     X_train_small.to_csv(output_path+"eda_X_train.csv")
 
+    X_relevant.to_csv(output_path+"X_original.csv")
+    y.to_csv(output_path+"y_original.csv")
+
 
 
 wrangler("flights.csv", "data/")
