@@ -10,15 +10,13 @@ For this project, we selected US Deparment of Transportation's dataset on [2015 
 Our main research question is the classification problem of predicting which flights are likely to be delayed. The motivation for this study is to help business travel passengers in making plans when they travel on the amount of buffer time they should keep in their schedules when travelling before making meeting commitments. For example, consultants travelling to client sites could reduce the likelihood of missing meetings due to delays in their domestic flights.
 
 ### Our plan
-We plan to fit a linear model on the dataset to find if there is signigificant linear relationship between those two variables by conducting a hypothesis test and how is their relationship by contucting a Generalized Linear Model. 
+Random forest, SVC, and logistic regression are all feasible models for our research question. Since SVC has strong predictive power via kernel trick, and is effective in high dimensional spaces and also relatively memory efficient, logistic regression is easier to implement, interpret and very efficient to train, so we decided to use these two models to fit our data set.
 
 ### Exploratory Data Analysis
 Before fit the data to any model, we will use scatter plot to see how the data points are distributed and diagnose any association. Then we can fit it into a model.
 
-
 ### Results
-The summary of lm() can show some results of the estimates of linear model parameters and predictions of the response. The plot of the Generalized Linear Model will help visualize a relationship.
-
+We will use the classifier plot and classification report to compare how our models are performing. The conclusion will be discussed below the plot and tables. 
 
 
 

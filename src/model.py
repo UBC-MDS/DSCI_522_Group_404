@@ -33,7 +33,7 @@ def get_model_results(X, y, X_train, y_train, X_test, y_test, output):
   svc_opt.fit(X_train, y_train.to_numpy().ravel())
   train_score_svc = svc_opt.score(X_train,y_train)
   test_score_svc= svc_opt.score(X_test,y_test)
-  svc_confusion_matrix = pd.DataFrame(confusion_matrix(y, svc_opt.predict(X)))
+
   
   parameters_lgr = {'C':np.logspace(-3,3,7)}
   lgr = LogisticRegression()
@@ -41,7 +41,7 @@ def get_model_results(X, y, X_train, y_train, X_test, y_test, output):
   lgr_opt.fit(X_train, y_train.to_numpy().ravel())
   train_score_lgr = lgr_opt.score(X_train,y_train)
   test_score_lgr = lgr_opt.score(X_test,y_test)
-  lgr_confusion_matrix = pd.DataFrame(confusion_matrix(y, lgr_opt.predict(X)))
+
   
   data = {'train_accuracy': [train_score_svc, train_score_lgr], 'test_accuracy':[test_score_svc, test_score_lgr]}
   accuracy = pd.DataFrame(data, index = ['SVC','LGR'])
@@ -54,7 +54,7 @@ def get_model_results(X, y, X_train, y_train, X_test, y_test, output):
   lgr_report = pd.DataFrame(classification_report(y_test, predictions_lgr))
  
   svc_report.to_csv(f'./{data_result_output}/svc_classification_report.csv')
-  lgr_report.to_csv(f'./{data_result_output}/svc_classification_report.lgr')
+  lgr_report.to_csv(f'./{data_result_output}/lgr_classification_report.lgr')
   
 
 
