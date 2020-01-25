@@ -65,8 +65,8 @@ def main(data_input, image_output, data_result_output):
   X_test = pd.read_csv("{data_input}/X_test_temp.csv")
   y_test = pd.read_csv("{data_input}/y_test.csv")
   
-  #X = pd.read_csv("{data_input}/X_path")
-  #y = pd.read_csv("{data_input}/y_path")
+  X = pd.read_csv("{data_input}/X_original.csv")
+  y = pd.read_csv("{data_input}/y_original.csv")
   
   get_model_results(X, y, X_train, y_train, X_test, y_test, data_result_output)
 
@@ -82,6 +82,6 @@ def main(data_input, image_output, data_result_output):
  
   
 if __name__ == "__main__":
-  main(input=opt["--input"], output=opt["--output"])
+  main(opt["<data_input>"], opt["<image_output>"], opt["<data_result_output>"])
 
 
