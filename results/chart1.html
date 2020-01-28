@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@3.4.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@4"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-abc01e0bdcf87d1f6a005da99c97f05e"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "field": "AIRLINE"}, "y": {"type": "quantitative", "field": "DEPARTURE_DELAY"}}, "title": "Average Departure Delay for Each Airline", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-abc01e0bdcf87d1f6a005da99c97f05e": [{"AIRLINE": "AA", "DEPARTURE_DELAY": 8.94419319250202}, {"AIRLINE": "AS", "DEPARTURE_DELAY": 1.736422215403498}, {"AIRLINE": "B6", "DEPARTURE_DELAY": 11.633524920057338}, {"AIRLINE": "DL", "DEPARTURE_DELAY": 7.353486829479937}, {"AIRLINE": "EV", "DEPARTURE_DELAY": 8.728730854674684}, {"AIRLINE": "F9", "DEPARTURE_DELAY": 13.471039578904747}, {"AIRLINE": "HA", "DEPARTURE_DELAY": 0.3688489617900825}, {"AIRLINE": "MQ", "DEPARTURE_DELAY": 10.189911382013975}, {"AIRLINE": "NK", "DEPARTURE_DELAY": 16.043845122624397}, {"AIRLINE": "OO", "DEPARTURE_DELAY": 7.786829975967338}, {"AIRLINE": "UA", "DEPARTURE_DELAY": 14.469582712050626}, {"AIRLINE": "US", "DEPARTURE_DELAY": 6.08405970037942}, {"AIRLINE": "VX", "DEPARTURE_DELAY": 9.11784140969163}, {"AIRLINE": "WN", "DEPARTURE_DELAY": 10.600930141522317}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

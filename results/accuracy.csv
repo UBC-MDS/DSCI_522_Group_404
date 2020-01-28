@@ -1,0 +1,3 @@
+,train_accuracy,test_accuracy
+SVC,0.73775,0.726375
+LGR,0.73775,0.726375
