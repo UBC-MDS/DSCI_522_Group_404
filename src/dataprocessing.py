@@ -98,9 +98,6 @@ def wrangler(input_path, output_path):
 
 
 
-    # HEAD 1278 COLUMNS 
-    X_test_temp.head()
-
 
 
     # SHOULD RETURN all the X_train, test y_train, test AND the original X_train without scaling/dummy variable 
