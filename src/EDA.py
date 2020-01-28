@@ -2,7 +2,9 @@
 # Date: 2020-01-23
 #
 """Reads in raw csv data and performs the necessary wrangling and transformations.
+
 Usage: src/EDA.py --path_in=<path_in> --path_out=<path_out>
+
 Options:
 --path_in=<path_in>    Path (including filename) of where to read source data
 --path_out=<path_out>    Path (excluding filename) of where to locally write the file
