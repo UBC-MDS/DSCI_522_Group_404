@@ -26,8 +26,7 @@ python src/dataprocessing.py --path_in="data/flights.csv" --path_out="/data/"
 
 python src/EDA.py --path_in="data/flights.csv" --path_out="/results/"
 
-python src/model2.py data results results
-
+python src/model.py --data_input=data --result_output=results
 
 
 ```
