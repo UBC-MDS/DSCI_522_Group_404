@@ -24,9 +24,8 @@ Rscript src/load_data.R 'https://dl.dropboxusercontent.com/s/5o9gmtpq2q8cshp/fli
 
 python src/dataprocessing.py --path_in="data/flights.csv" --path_out="/data"
 
-python src/model.py --data_input data/ --result_output doc/ output
+python src/model2.py data results results
 
-ADD SCRIPTS
 
 
 ```
