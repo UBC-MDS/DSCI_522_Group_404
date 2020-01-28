@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@3.4.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@4"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-c81828aa0b1835d1adeaff58255921ea"}, "mark": "bar", "encoding": {"x": {"type": "nominal", "field": "MONTH"}, "y": {"type": "quantitative", "field": "DEPARTURE_DELAY"}}, "title": "Average Departure Delay for Each Month", "width": 500, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-c81828aa0b1835d1adeaff58255921ea": [{"MONTH": 1, "DEPARTURE_DELAY": 9.792023537622129}, {"MONTH": 2, "DEPARTURE_DELAY": 11.881059249957698}, {"MONTH": 3, "DEPARTURE_DELAY": 9.723646964539112}, {"MONTH": 4, "DEPARTURE_DELAY": 7.786466341522385}, {"MONTH": 5, "DEPARTURE_DELAY": 9.472384043292475}, {"MONTH": 6, "DEPARTURE_DELAY": 13.96908452387519}, {"MONTH": 7, "DEPARTURE_DELAY": 11.405888457006174}, {"MONTH": 8, "DEPARTURE_DELAY": 9.974987947299116}, {"MONTH": 9, "DEPARTURE_DELAY": 4.825730045043456}, {"MONTH": 10, "DEPARTURE_DELAY": 4.943331227246743}, {"MONTH": 11, "DEPARTURE_DELAY": 6.9599352013804925}, {"MONTH": 12, "DEPARTURE_DELAY": 11.825882717124228}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
