@@ -69,7 +69,6 @@ def get_model_results(X, y, X_train, y_train, X_test, y_test, result_output):
   
     get_model_results(X, y, X_train, y_train, X_test, y_test, result_output)
 
-  
     plt.figure(figsize=(18,3))
     model = [svc_opt, lgr_opt]
     for i in range(2):
