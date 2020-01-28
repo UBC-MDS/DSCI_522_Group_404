@@ -1,5 +1,12 @@
-#!/usr/bin/env python
-# coding: utf-8
+# Author: Group 404
+# Date: 2020-01-23
+#
+"""Reads in raw csv data and performs the necessary wrangling and transformations.
+Usage: src/dataprocessing.py --path_in=<path_in> --path_out=<path_out>
+Options:
+--path_in=<path_in>    Path (including filename) of where to read source data
+--path_out=<path_out>    Path (excluding filename) of where to locally write the file
+"""
 
 import numpy as np
 import pandas as pd
@@ -7,7 +14,11 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
+from docopt import docopt
+import requests
+import os
 
+opt = docopt(__doc__)
 
 def wrangler(input_path, output_path):
     df = pd.read_csv(input_path)
@@ -105,4 +116,8 @@ def wrangler(input_path, output_path):
     y.to_csv(output_path+"y_original.csv")
 
 
-wrangler("flights.csv", "data/")
+def main(path_in, path_out):
+    EDA(path_in, path_out)
+if __name__ == "__main__":
+    main(opt["--path_in"], opt["--path_out"])
+
