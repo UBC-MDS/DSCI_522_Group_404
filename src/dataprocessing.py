@@ -2,7 +2,9 @@
 # Date: 2020-01-23
 #
 """Reads in raw csv data and performs the necessary wrangling and transformations.
+
 Usage: src/dataprocessing.py --path_in=<path_in> --path_out=<path_out>
+
 Options:
 --path_in=<path_in>    Path (including filename) of where to read source data
 --path_out=<path_out>    Path (excluding filename) of where to locally write the file
@@ -114,7 +116,8 @@ def wrangler(input_path, output_path):
 
 
 def main(path_in, path_out):
-    EDA(path_in, path_out)
+    wrangler(path_in, path_out)
+
 if __name__ == "__main__":
     main(opt["--path_in"], opt["--path_out"])
 

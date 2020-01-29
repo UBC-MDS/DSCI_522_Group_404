@@ -2,7 +2,9 @@
 # Date: 2020-01-23
 #
 """Reads in raw csv data and performs the necessary wrangling and transformations.
-Usage: src/dataprocessing.py --path_in=<path_in> --path_out=<path_out>
+
+Usage: src/EDA.py --path_in=<path_in> --path_out=<path_out>
+
 Options:
 --path_in=<path_in>    Path (including filename) of where to read source data
 --path_out=<path_out>    Path (excluding filename) of where to locally write the file
@@ -23,17 +25,17 @@ import os
 
 opt = docopt(__doc__)
 
-def EDA(input_path, output_path):
+def EDA(path_in, path_out):
     try: 
-        assert(type(input_path) == str)
+        assert(type(path_in) == str)
     except:
         print("Input path should be a string")
     try: 
-        assert(type(output_path) == str)
+        assert(type(path_out) == str)
     except:
         print("Input path should be a string")
 
-    data = pd.read_csv(input_path)
+    data = pd.read_csv(path_in)
 
 
 
@@ -141,10 +143,10 @@ def EDA(input_path, output_path):
         y='count()',
     ).properties(width = 1000,title = "Departure Delay in Minutes Histogram")
 
-    chart_1.save(output_path+'chart1.html')
-    chart_2.save(output_path+'chart2.html')
-    chart_3.save(output_path+'chart3.html')
-    chart_4.save(output_path+'chart4.html')
+    chart_1.save(path_out+'chart1.html')
+    chart_2.save(path_out+'chart2.html')
+    chart_3.save(path_out+'chart3.html')
+    chart_4.save(path_out+'chart4.html')
 
 
 
