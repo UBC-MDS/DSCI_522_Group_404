@@ -13078,14 +13078,13 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Predicting-US-domestic-flight-delays-using-flight-details">Predicting US domestic flight delays using flight details<a class="anchor-link" href="#Predicting-US-domestic-flight-delays-using-flight-details">&#182;</a></h2><p>Group 404: Mike Chen, Lori Fang, Jarome Leslie</p>
-<h3 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h3><p>In this project we aim to develop a classifier which predicts whether a US domestic flight will be delayed based on its characteristics. We compare Support Vector Machines ("SVM") and Logistic Regression classifiers which both resulted in a 72.6% accuracy rate on unseen validation data. Taking a closer look at the data, we observed that the status of a flight as delayed or not delayed is imbalanced with 27.4% of observations representing a delayed flight and 72.6% representing the proportion of flights that were on time. It appears that neither model does a good job of classifying delayed flights, even after parameter optimization. A second look at the features and the consideration of different classifiers may therefore be required.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13101,6 +13100,15 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h3><p>In this project we aim to develop a classifier which predicts whether a US domestic flight will be delayed based on its characteristics, comparing the performance of Support Vector Machines ("SVM") and Logistic Regression classifiers. After optimizing for hyperparameters, the SVM resulted in a 60.0% accuracy rate.</p>
+<p>In comparison, the Logistic Regression classifier achieved a 57.1% accuracy rate. Comparing the results from the two models, It appears that neither model does a good job of classifying delayed flights, even after parameter optimization. A second look at the features and the consideration of different classifiers may therefore be required.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>On any given day there are approximately 87,000 flights in the skies of the United States (US National Oceanic and Atmospheric Administration). For business travellers trying to fit productivity into every hour of the day, knowing whether a flight will be delayed would help them avoid setting unrealistic meeting times. Here we endeavour to test whether a machine learning model can answer the question of whether a flight will be delayed.</p>
 
 </div>
@@ -13112,14 +13120,7 @@ div#notebook {
 <h2 id="Methods">Methods<a class="anchor-link" href="#Methods">&#182;</a></h2><h3 id="Data">Data<a class="anchor-link" href="#Data">&#182;</a></h3><p>For this project, we selected US Deparment of Transportation's dataset on <a href="https://www.kaggle.com/usdot/flight-delays#flights.csv.">2015 Flight Delays and Cancellations</a>. This data is shared on Kaggle under a CC0: Public Domain license.   This dataset contains data for approximately 6 million domestic flights in the 2015 calender year with datetime-, airline- and flight-related features. Some datetime-related features include <code>YEAR</code>, <code>MONTH</code>, <code>DAY</code>, <code>DAY_OF_THE_WEEK</code>, <code>SCHEDULED_DEPARTURE</code>, <code>DEPARTURE_TIME</code>, <code>DEPARTURE_DELAY</code>, and  <code>ARRIVAL_TIME</code>. Some examples of the airline-related features are <code>AIRLINE</code>, <code>FLIGHT_NUMBER</code>, and <code>TAIL_NUMBER</code>. Lastly,  the flight-related features include features such as <code>ORIGIN_AIRPORT</code>, <code>DESTINATION_AIRPORT</code>, <code>DISTANCE</code>, <code>SCHEDULED_TIME</code>, <code>ELAPSED_TIME</code>,  and <code>AIR_TIME</code>.</p>
 <p>Taking a preliminary look at the data, we observe average departure delay for different US domestic carriers. Here we observe that Spirit Airways and United Airways experiences the largest average departure delays in 2015. Similarly, Alaska Airlines and Hawaiian Airlines recorded the lowest average departure delay times in the country for the same year. Our analysis will explore whether this feature has any predictive power.</p>
 <p><strong>Figure 1. Average departure delay for each airline</strong></p>
-
-<pre><code>    &lt;iframe
-        width="1000"
-        height="400"
-        src="../results/chart1.html"
-        frameborder="0"
-        allowfullscreen
-    &gt;&lt;/iframe&gt;</code></pre>
+<p><img src="../results/chart1.png" width = 500 /></p>
 
 </div>
 </div>
@@ -13127,7 +13128,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">&#182;</a></h3><p>To compare the SVM and Logistic regression we sought out to perform hyperparameter optimization for the following values of C, and gamma. From performing <code>GridSearchCV</code> over this set, we identified the optimal parameters for the SVM classifier as &quot;{&#39;C&#39;: 0.001, &#39;gamma&#39;: 0.0001}&quot; and the optimal parameters for the logistic regression classifier as &quot;{&#39;C&#39;: 0.001}&quot;.</p>
+<h3 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">&#182;</a></h3><p>To compare the SVM and Logistic regression we sought out to perform hyperparameter optimization for the following values of C, and gamma. From performing <code>GridSearchCV</code> over this set, we identified the optimal parameters for the SVM classifier as &quot;{&#39;gamma&#39;: 0.0001, &#39;C&#39;: 10.0}&quot; and the optimal parameters for the logistic regression classifier as &quot;{&#39;C&#39;: 0.001}&quot;.</p>
 <p><strong>Figure 2. Hyperparameters tested for optimization</strong></p>
 <div>
 <style scoped>
@@ -13229,36 +13230,36 @@ div#notebook {
     <tr>
       <td>0</td>
       <td>precision</td>
-      <td>0.726375</td>
-      <td>0.0</td>
-      <td>0.726375</td>
-      <td>0.363187</td>
-      <td>0.527621</td>
+      <td>0.645559</td>
+      <td>0.535823</td>
+      <td>0.600375</td>
+      <td>0.590691</td>
+      <td>0.598468</td>
     </tr>
     <tr>
       <td>1</td>
       <td>recall</td>
-      <td>1.000000</td>
-      <td>0.0</td>
-      <td>0.726375</td>
-      <td>0.500000</td>
-      <td>0.726375</td>
+      <td>0.665207</td>
+      <td>0.514128</td>
+      <td>0.600375</td>
+      <td>0.589667</td>
+      <td>0.600375</td>
     </tr>
     <tr>
       <td>2</td>
       <td>f1-score</td>
-      <td>0.841503</td>
-      <td>0.0</td>
-      <td>0.726375</td>
-      <td>0.420752</td>
-      <td>0.611247</td>
+      <td>0.655236</td>
+      <td>0.524751</td>
+      <td>0.600375</td>
+      <td>0.589993</td>
+      <td>0.599241</td>
     </tr>
     <tr>
       <td>3</td>
       <td>support</td>
-      <td>5811.000000</td>
-      <td>2189.0</td>
-      <td>0.726375</td>
+      <td>4567.000000</td>
+      <td>3433.000000</td>
+      <td>0.600375</td>
       <td>8000.000000</td>
       <td>8000.000000</td>
     </tr>
@@ -13295,36 +13296,36 @@ div#notebook {
     <tr>
       <td>0</td>
       <td>precision</td>
-      <td>0.726375</td>
+      <td>0.570875</td>
       <td>0.0</td>
-      <td>0.726375</td>
-      <td>0.363187</td>
-      <td>0.527621</td>
+      <td>0.570875</td>
+      <td>0.285438</td>
+      <td>0.325898</td>
     </tr>
     <tr>
       <td>1</td>
       <td>recall</td>
       <td>1.000000</td>
       <td>0.0</td>
-      <td>0.726375</td>
+      <td>0.570875</td>
       <td>0.500000</td>
-      <td>0.726375</td>
+      <td>0.570875</td>
     </tr>
     <tr>
       <td>2</td>
       <td>f1-score</td>
-      <td>0.841503</td>
+      <td>0.726824</td>
       <td>0.0</td>
-      <td>0.726375</td>
-      <td>0.420752</td>
-      <td>0.611247</td>
+      <td>0.570875</td>
+      <td>0.363412</td>
+      <td>0.414926</td>
     </tr>
     <tr>
       <td>3</td>
       <td>support</td>
-      <td>5811.000000</td>
-      <td>2189.0</td>
-      <td>0.726375</td>
+      <td>4567.000000</td>
+      <td>3433.0</td>
+      <td>0.570875</td>
       <td>8000.000000</td>
       <td>8000.000000</td>
     </tr>
@@ -13356,29 +13357,6 @@ div#notebook {
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#variables for report</span>
-<span class="n">Test_acc</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../results/accuracy.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;test_accuracy&#39;</span><span class="p">]),</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
-<span class="n">y_original</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/y_test.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;Target&#39;</span><span class="p">]</span>
-<span class="n">late_dep</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/y_test.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;Target&#39;</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/y_test.csv&#39;</span><span class="p">)[</span><span class="s1">&#39;Target&#39;</span><span class="p">])</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
     </div>
   </div>
