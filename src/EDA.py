@@ -98,8 +98,9 @@ def EDA(path_in, path_out):
     })
 
     chart_1 = alt.Chart(source).mark_bar().encode(
-        alt.X('AIRLINE:N'),
-        alt.Y('DEPARTURE_DELAY:Q')
+        alt.X('AIRLINE:N', 
+         axis = alt.Axis(labelAngle = 0), title = "Airline"),
+        alt.Y('DEPARTURE_DELAY:Q', title = "Average departure delay (minutes)")
     ).properties(width = 500,title = "Average Departure Delay for Each Airline")
 
 
@@ -143,10 +144,10 @@ def EDA(path_in, path_out):
         y='count()',
     ).properties(width = 1000,title = "Departure Delay in Minutes Histogram")
 
-    chart_1.save(path_out+'chart1.html')
-    chart_2.save(path_out+'chart2.html')
-    chart_3.save(path_out+'chart3.html')
-    chart_4.save(path_out+'chart4.html')
+    chart_1.save(path_out+'chart1.png')
+    chart_2.save(path_out+'chart2.png')
+    chart_3.save(path_out+'chart3.png')
+    chart_4.save(path_out+'chart4.png')
 
 
 
