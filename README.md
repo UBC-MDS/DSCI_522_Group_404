@@ -40,6 +40,19 @@ The v0.1 release for this project may be found here: [Pre-release version 0.1](h
 The EDA for this project may be found here: [Group 404 EDA](https://github.com/jsleslie/DSCI_522_Group_404/blob/3df0489caddf20d321e108be90ee03165937719f/src/Preliminary_EDA.ipynb)
 
 
+## Dependencies
+- Python 3.7.3 and Python packages:
+  - docopt==0.6.2
+  - requests==2.22.0
+  - pandas==0.25.2
+  - scikit-learn==0.22.1
+  - altair==3.2.0
+- R version 3.6.1 and R packages:
+  - readr==1.3.1
+  - docopt==0.6.1
+  - RCurl==1.98.1.1
+  - testthat==2.2.1
+
 
 # References
 
