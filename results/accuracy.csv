@@ -1,3 +1,4 @@
-,train_accuracy,test_accuracy,best_params
-SVC,0.73775,0.726375,"{'C': 0.001, 'gamma': 0.0001}"
-LGR,0.73775,0.726375,{'C': 0.001}
+,train_accuracy,test_accuracy
+SVC,0.73775,0.726375
+LGR,0.73775,0.726375
+LGBM,0.77125,0.722875

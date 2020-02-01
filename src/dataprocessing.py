@@ -114,6 +114,16 @@ def wrangler(input_path, output_path):
     X_relevant.to_csv(output_path+"X_original.csv")
     y.to_csv(output_path+"y_original.csv")
 
+    try:
+        pd.read_csv(output_path+'/X_train_clean.csv')
+        pd.read_csv(output_path+'/X_test_clean.csv')
+        pd.read_csv(output_path+'/y_train.csv')
+        pd.read_csv(output_path+'/y_test.csv')
+        pd.read_csv(output_path+'/X_original.csv')
+        pd.read_csv(output_path+'/y_original.csv')    
+        
+    except: 
+        raise Exception("file doesn't save successfully")
 
 def main(path_in, path_out):
     wrangler(path_in, path_out)
