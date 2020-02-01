@@ -14,7 +14,7 @@ from docopt import docopt
 from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
-from plot_classifier import plot_classifier
+#from plot_classifier import plot_classifier
 import matplotlib.pyplot as plt
 from sklearn.metrics import classification_report
 import lightgbm as lgb
