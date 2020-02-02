@@ -17,6 +17,8 @@ The final report for our analysis may be found [here](https://ubc-mds.github.io/
 
 ## Usage
 
+Due to the use of `GridSearchCV` the `make all` command takes a long time - approximately 45 minutes. In milestone4 we will change this to rely on `RandomizedSearchCV`
+
 To download the flights dataset, run the following code in the command line:
 
 ```
