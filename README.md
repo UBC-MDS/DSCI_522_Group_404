@@ -13,9 +13,11 @@ For this project, we selected US Deparment of Transportation's dataset on 2015 F
 
 ## Report
 
-The final report for our analysis may be found [here](https://github.com/UBC-MDS/DSCI_522_Group_404/blob/6d34cd2bd297bb375228debe0c964abf4186ff13/doc/flight_delays_report.ipynb).
+The final report for our analysis may be found [here](https://ubc-mds.github.io/DSCI_522_Group_404/doc/flight_delays_report.html).
 
 ## Usage
+
+Due to the use of `GridSearchCV` the `make all` command takes a long time - approximately 45 minutes. In milestone4 we will change this to rely on `RandomizedSearchCV`
 
 To download the flights dataset, run the following code in the command line:
 
