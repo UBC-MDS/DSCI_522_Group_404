@@ -11,10 +11,10 @@ Arguments:
 import numpy as np
 import pandas as pd
 from docopt import docopt
-from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import RandomizedSearchCV
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
-from plot_classifier import plot_classifier
+#from plot_classifier import plot_classifier
 import matplotlib.pyplot as plt
 from sklearn.metrics import classification_report
 import lightgbm as lgb
@@ -24,15 +24,24 @@ opt = docopt(__doc__)
 def get_model_results(X, y, X_train, y_train, X_test, y_test, result_output):
     
     parameters_svc = {'C':np.logspace(-3,3,7), 'gamma':np.logspace(-4,2,7)}
+    pd.DataFrame(parameters_svc).to_csv(result_output + '/hyper_parameters.csv')
     svc = SVC()
-    svc_opt = GridSearchCV(svc, parameters_svc, cv=5, iid=False)
+    svc_opt = RandomizedSearchCV(svc, parameters_svc, cv=5, iid=False, n_iter = 25)
+    # svc_opt.fit(X_train, y_train)
+    # train_score_svc = svc_opt.score(X_train,y_train)
+    # test_score_svc= svc_opt.score(X_test,y_test)
+    #svc_opt = GridSearchCV(svc, parameters_svc, cv=5, iid=False)
+    
     svc_opt.fit(X_train.to_numpy(), y_train.to_numpy().ravel())
     train_score_svc = svc_opt.score(X_train.to_numpy(),y_train.to_numpy().ravel())
     test_score_svc = svc_opt.score(X_test.to_numpy(),y_test.to_numpy().ravel())
     parameters_lgr = {'C':np.logspace(-3,3,7)}
     
     lgr = LogisticRegression()
-    lgr_opt = GridSearchCV(lgr, parameters_lgr, cv=5, iid=False)
+
+    #lgr_opt = GridSearchCV(lgr, parameters_lgr, cv=5, iid=False)
+    lgr_opt = RandomizedSearchCV(lgr, parameters_lgr, cv=5, iid=False, n_iter = 25)
+
     lgr_opt.fit(X_train.to_numpy(), y_train.to_numpy().ravel())
     train_score_lgr = lgr_opt.score(X_train.to_numpy(),y_train.to_numpy().ravel())
     test_score_lgr = lgr_opt.score(X_test.to_numpy(),y_test.to_numpy().ravel())
