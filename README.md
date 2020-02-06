@@ -30,7 +30,7 @@ python src/EDA.py --path_in="data/flights.csv" --path_out="results/"
 
 python src/model.py --data_input=data --result_output=results
 
-jupyter nbconvert doc/flight_delays_report.ipynb --to html
+jupyter nbconvert doc/flight_delays_report.ipynb --TagRemovePreprocessor.remove_input_tags='{"remove_input"}'
 
 
 ```
