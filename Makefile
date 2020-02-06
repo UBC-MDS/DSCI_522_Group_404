@@ -1,5 +1,8 @@
 # Author: Group 404 - Jarome Leslie, Mike Chen, Lori Fang
+#
 # Date: 2020-02-05
+#
+# Master script performing the downloading, wrangling, EDA, modeling and rendering of our report
 #
 all : doc/flight_delays_report.html
 
