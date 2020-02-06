@@ -98,9 +98,10 @@ def EDA(path_in, path_out):
     })
 
     chart_1 = alt.Chart(source).mark_bar().encode(
-        alt.X('AIRLINE:N', 
-         axis = alt.Axis(labelAngle = 0), title = "Airline"),
-        alt.Y('DEPARTURE_DELAY:Q', title = "Average departure delay (minutes)")
+        alt.X('DEPARTURE_DELAY:Q', title = "Average departure delay (minutes)"),
+        alt.Y('AIRLINE:N', sort='-x',
+         axis = alt.Axis(labelAngle = 0), title = "Airline code")
+
     ).properties(width = 500,title = "Average Departure Delay for Each Airline")
 
 
