@@ -12,6 +12,7 @@ import numpy as np
 import pandas as pd
 from docopt import docopt
 from sklearn.model_selection import RandomizedSearchCV
+#from sklearn.model_selection import GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import SVC
 #from plot_classifier import plot_classifier
@@ -51,7 +52,7 @@ def get_model_results(X, y, X_train, y_train, X_test, y_test, result_output):
     train_score_lgbm = lgbm.score(X_train.to_numpy(),y_train.to_numpy().ravel())
     test_score_lgbm = lgbm.score(X_test.to_numpy(),y_test.to_numpy().ravel())
     
-    data = {'train_accuracy':[train_score_svc, train_score_lgr, train_score_lgbm], 'test_accuracy':[test_score_svc, test_score_lgr,test_score_lgbm]}
+    data = {'Train accuracy':[train_score_svc, train_score_lgr, train_score_lgbm], 'Validation accuracy':[test_score_svc, test_score_lgr,test_score_lgbm], 'Best parameters':[svc_opt.best_params_,lgr_opt.best_params_, 'NA']}
     accuracy_df = pd.DataFrame(data, index = ['SVC','LGR','LGBM'])
     accuracy_df.to_csv(result_output+'/accuracy.csv')
     

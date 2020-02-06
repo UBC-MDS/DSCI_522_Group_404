@@ -17,22 +17,16 @@ The final report for our analysis may be found [here](https://ubc-mds.github.io/
 
 ## Usage
 
-Due to the use of `GridSearchCV` the `make all` command takes a long time - approximately 45 minutes. In milestone4 we will change this to rely on `RandomizedSearchCV`
-
-To download the flights dataset, run the following code in the command line:
+To replicate the analysis, clone this GitHub repository, install the dependencies listed below, and run the following command at the command line/terminal from the root directory of this project:
 
 ```
-Rscript src/load_data.R 'https://dl.dropboxusercontent.com/s/5o9gmtpq2q8cshp/flights.csv?dl=0' 'data/flights.csv'
+make all
+```
 
-python src/dataprocessing.py --path_in="data/flights.csv" --path_out="data/"
+To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
 
-python src/EDA.py --path_in="data/flights.csv" --path_out="results/"
-
-python src/model.py --data_input=data --result_output=results
-
-jupyter nbconvert doc/flight_delays_report.ipynb --to html
-
-
+```
+make clean
 ```
 
 ## Links
