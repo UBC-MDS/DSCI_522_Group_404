@@ -12,11 +12,11 @@ data/flights.csv :  src/load_data.R
  
 # To wrangle and clean the data, written by Mike 
 data/X_original.csv data/X_test_clean.csv data/X_train_clean data/y_original data/y_test data/y_train : data/flights.csv src/dataprocessing.py 
-	python src/dataprocessing.py --path_in="data/flights.csv" --path_out="data/"
+	python src/dataprocessing.py --path_in=data/flights.csv --path_out=data/
 
 # EDA script to create plots and explore the data, written by Mike	
 results/chart1.png : data/flights.csv src/EDA.py 
-	python src/EDA.py --path_in="data/flights.csv" --path_out="results/"
+	python src/EDA.py --path_in=data/flights.csv --path_out=results/
 
 # Model script to perform classification analysis, written by Lori
 results/accuracy.csv results/lgr_classification_report.csv results/svc_classification_report.csv results/lgbm_classification_report.csv results/hyper_parameters.csv : data/X_original.csv data/X_test_clean.csv data/X_train_clean data/y_original data/y_test data/y_train src/model.py 
