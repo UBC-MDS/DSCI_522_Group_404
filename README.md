@@ -51,6 +51,13 @@ To reset the repo to a clean state, with no intermediate or results files, run t
 make clean
 ```
 
+### Dependency diagram of the Makefile
+
+The relationships between the scripts, data files and final outputs are summarised in the dependency diagram below.
+
+<img src="Makefile.png" width=1100/>
+
+
 ## Links
 
 The v0.1 release for this project may be found here: [Pre-release version 0.1](https://github.com/UBC-MDS/DSCI_522_Group_404/releases/tag/0.1)

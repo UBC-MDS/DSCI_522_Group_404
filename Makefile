@@ -24,7 +24,7 @@ results/accuracy.csv results/lgr_classification_report.csv results/svc_classific
 
 # Report script to generate a final report, written by Jarome	
 doc/flight_delays_report.html : results/accuracy.csv doc/flight_delays_report.ipynb results/chart1.png results/hyper_parameters.csv results/lgr_classification_report.csv results/svc_classification_report.csv results/lgbm_classification_report.csv
-	jupyter nbconvert doc/flight_delays_report.ipynb --to html
+	jupyter nbconvert doc/flight_delays_report.ipynb --TagRemovePreprocessor.remove_input_tags='{"remove_input"}'
   
 	
 clean :
