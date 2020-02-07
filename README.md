@@ -17,6 +17,28 @@ The final report for our analysis may be found [here](https://ubc-mds.github.io/
 
 ## Usage
 
+### With Docker
+
+To replicate the analysis, clone this GitHub repository and install [Docker](https://www.docker.com/get-started). Then run the following command at the command line/terminal from the root directory of this project, in order to docker pull the docker image
+
+```
+docker pull lori94/group_404_milestone4:v1.0
+```
+
+Then run the following command in the terminal from the root directory of this project to run the analysis in it's entirety.
+
+```
+docker run --rm -v /$(pwd):/home lori94/group_404_milestone4:v1.0 make -C /home all
+```
+
+To reset the repo to a clean state, run the following command from the root directory of this project.
+
+```
+docker run --rm -v /$(pwd):/home lori94/group_404_milestone4:v1.0 make -C /home clean
+```
+
+### Without Docker
+
 To replicate the analysis, clone this GitHub repository, install the dependencies listed below, and run the following command at the command line/terminal from the root directory of this project:
 
 ```
