@@ -17,23 +17,46 @@ The final report for our analysis may be found [here](https://ubc-mds.github.io/
 
 ## Usage
 
-Due to the use of `GridSearchCV` the `make all` command takes a long time - approximately 45 minutes. In milestone4 we will change this to rely on `RandomizedSearchCV`
+### With Docker
 
-To download the flights dataset, run the following code in the command line:
-
-```
-Rscript src/load_data.R 'https://dl.dropboxusercontent.com/s/5o9gmtpq2q8cshp/flights.csv?dl=0' 'data/flights.csv'
-
-python src/dataprocessing.py --path_in="data/flights.csv" --path_out="data/"
-
-python src/EDA.py --path_in="data/flights.csv" --path_out="results/"
-
-python src/model.py --data_input=data --result_output=results
-
-jupyter nbconvert doc/flight_delays_report.ipynb --to html
-
+To replicate the analysis, clone this GitHub repository and install [Docker](https://www.docker.com/get-started). Then run the following command at the command line/terminal from the root directory of this project, in order to docker pull the docker image
 
 ```
+docker pull lori94/group_404_milestone4:v1.0
+```
+
+Then run the following command in the terminal from the root directory of this project to run the analysis in it's entirety.
+
+```
+docker run --rm -v /$(pwd):/home lori94/group_404_milestone4:v1.0 make -C /home all
+```
+
+To reset the repo to a clean state, run the following command from the root directory of this project.
+
+```
+docker run --rm -v /$(pwd):/home lori94/group_404_milestone4:v1.0 make -C /home clean
+```
+
+### Without Docker
+
+To replicate the analysis, clone this GitHub repository, install the dependencies listed below, and run the following command at the command line/terminal from the root directory of this project:
+
+```
+make all
+```
+
+To reset the repo to a clean state, with no intermediate or results files, run the following command at the command line/terminal from the root directory of this project:
+
+```
+make clean
+```
+
+### Dependency diagram of the Makefile
+
+The relationships between the scripts, data files and final outputs are summarised in the dependency diagram below.
+
+<img src="Makefile.png" width=1100/>
+
 
 ## Links
 
