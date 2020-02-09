@@ -28,10 +28,15 @@ RUN pip3 install pandas
 RUN pip3 install docopt 
 RUN pip3 install requests 
 RUN pip3 install scikit-learn 
+RUN pip3 install jupyter_contrib_nbextensions
 RUN pip3 install altair 
 RUN apt-get update && \
     pip3 install matplotlib && \
     rm -rf /var/lib/apt/lists/*
+
+
+# enable nbextension PythonMarkdown
+RUN jupyter nbextension enable PythonMarkdown/main
 
 # install lightGBM (code from: https://github.com/microsoft/LightGBM/blob/master/docker/dockerfile-python)
 
@@ -59,4 +64,4 @@ RUN apt-get update && \
     # clean
     apt-get autoremove -y && apt-get clean && \
     conda clean -a -y && \
-    rm -rf /usr/local/src/*
+    rm -rf /usr/local/src/*>>>>>>> upstream/master
