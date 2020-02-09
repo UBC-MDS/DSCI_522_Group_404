@@ -28,8 +28,12 @@ RUN pip3 install pandas
 RUN pip3 install docopt 
 RUN pip3 install requests 
 RUN pip3 install scikit-learn 
+RUN pip3 install jupyter_contrib_nbextensions
 RUN pip3 install altair 
 RUN pip3 install lightgbm
 RUN apt-get update && \
     pip3 install matplotlib && \
     rm -rf /var/lib/apt/lists/*
+
+# enable nbextension PythonMarkdown
+RUN jupyter nbextension enable PythonMarkdown/main
