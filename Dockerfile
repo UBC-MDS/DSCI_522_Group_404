@@ -35,8 +35,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 
-# enable nbextension PythonMarkdown
-RUN jupyter nbextension enable PythonMarkdown/main
+# enable nbextension PythonMarkdown (not working...)
+#RUN jupyter nbextension enable PythonMarkdown/main
 
 # install lightGBM (code from: https://github.com/microsoft/LightGBM/blob/master/docker/dockerfile-python)
 
