@@ -64,4 +64,4 @@ RUN apt-get update && \
     # clean
     apt-get autoremove -y && apt-get clean && \
     conda clean -a -y && \
-    rm -rf /usr/local/src/*>>>>>>> upstream/master
+    rm -rf /usr/local/src/*
